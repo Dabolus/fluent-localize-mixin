@@ -20,11 +20,11 @@ export class LocalizedLitElement extends LitElement {
       return;
     }
 
-    if (!this.constructor.prototype.contexts[locale]) {
+    const cache = this.constructor.prototype.__localizationCache;
+    if (!cache || !cache.contexts[locale]) {
       throw new Error(`Resources for "${locale}" were not loaded!`);
     } else {
       this.__locale = locale;
-      this.__currentContext = this.constructor.prototype.contexts[locale];
     }
   }
 
