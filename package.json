@@ -1,0 +1,21 @@
+{
+  "name": "@dabolus/localized-lit-element",
+  "version": "0.0.1",
+  "description": "A LitElement extension that provides easy l10n out of the box.",
+  "main": "localized-lit-element.js",
+  "author": {
+    "name": "Giorgio Garasto (Dabolus)",
+    "email": "mail@dabolus.app",
+    "url": "https://dabolus.app"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@polymer/lit-element": "^0.5.1",
+    "fluent": "^0.6.4"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "eslint": "^4.19.1",
+    "eslint-config-google": "^0.9.1"
+  }
+}
