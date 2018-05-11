@@ -53,6 +53,9 @@ export class LocalizedLitElement extends LitElement {
     }
     const ctx = cache.contexts[this.__locale];
     const message = ctx.getMessage(key);
+    if (!message) {
+      return;
+    }
     return ctx.format(message, params);
   }
 }
