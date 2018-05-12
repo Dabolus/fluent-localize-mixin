@@ -8,6 +8,22 @@ import { MessageContext, ftl } from 'fluent';
  */
 export class LocalizedLitElement extends LitElement {
   /**
+   * Gets the global locale
+   * @return {string} The current global locale
+   */
+  get globalLocale() {
+    return LitElement.globalLocale;
+  }
+
+  /**
+   * Sets the global locale
+   * @param {string} locale The locale to set as global
+   */
+  set globalLocale(locale) {
+    LitElement.globalLocale = locale;
+  }
+
+  /**
    * The LocalizedLitElement constructor.
    * Besides calling the super constructor, it also
    * instantiates the global and local l10n cache.
@@ -31,12 +47,13 @@ export class LocalizedLitElement extends LitElement {
    * If the context for the locale does not exists, a new context
    * is created and associated with the locale.
    * If no locale is provided, the current locale will be used.
-   * If no current locale is set, an error will be thrown.
+   * If no current locale is set, the global locale will be used.
+   * If no locale is available at all, an error will be thrown.
    * @param {string} [locale] The locale to get the context of
    * @return {MessageContext} The context of the given locale
    */
   getLocaleContext(locale) {
-    const loc = locale || this.locale;
+    const loc = locale || this.locale || this.globalLocale;
     if (!loc) {
       throw new Error('No locale provided');
     }
