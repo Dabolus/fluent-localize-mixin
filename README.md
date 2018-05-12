@@ -31,7 +31,7 @@ incredibly simple. For example, given this LitElement:
   customElements.define('my-element', MyElement);
 </script>
 
-<my-element></my-element>
+<my-element mood="happy"></my-element>
 ```
 
 The same element with l10n added would look like this:
@@ -71,7 +71,7 @@ The same element with l10n added would look like this:
   customElements.define('my-element', MyElement);
 </script>
 
-<my-element></my-element>
+<my-element mood="happy"></my-element>
 ```
 
 **Done!**
