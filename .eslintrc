@@ -15,7 +15,7 @@
   "rules": {
     "max-len": [
       "error",
-      120
+      80
     ],
     "indent": [
       "error",
