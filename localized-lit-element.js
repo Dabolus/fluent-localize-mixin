@@ -1,6 +1,9 @@
 import { LitElement } from '@polymer/lit-element';
 import { MessageContext, ftl } from 'fluent';
 
+export { html } from '@polymer/lit-element';
+export { ftl } from 'fluent';
+
 /**
  * A LitElement extension that provides easy l10n out of the box.
  * @class
@@ -68,7 +71,7 @@ export class LocalizedLitElement extends LitElement {
    * Adds the given fluent template resource to the given locale context
    * @param {string} fluentTemplate The fluent template resource to add to the
    *        locale context
-   * @param {string} locale The locale to add the fluent template resource to
+   * @param {string} [locale] The locale to add the fluent template resource to
    * @return {MessageContext} The locale context with the new fluent template
    *         resource added
    */
@@ -81,7 +84,7 @@ export class LocalizedLitElement extends LitElement {
   /**
    * Loads the FTL resource at the given path for the given locale.
    * @param {String} path The path to fetch the FTL resource from
-   * @param {String} locale The locale to associate the fetched resource with
+   * @param {String} [locale] The locale to associate the fetched resource with
    * @return {Promise<MessageContext>} A promise that resolves to the
    *         MessageContext with the fetched messages already added
    */
