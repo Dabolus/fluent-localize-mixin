@@ -1,5 +1,7 @@
 # LocalizedLitElement
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Dabolus/localized-lit-element.svg)](https://greenkeeper.io/)
+
 ## A LitElement extension that provides easy l10n out of the box
 
 LocalizedLitElement is a simple wrapper around LitElement that allows to easily
