@@ -1,5 +1,5 @@
 import { LitElement } from '@polymer/lit-element';
-import { MessageContext, ftl } from 'fluent';
+import { FluentBundle, ftl } from 'fluent';
 
 export { html } from '@polymer/lit-element';
 export { ftl } from 'fluent';
@@ -39,54 +39,54 @@ export class LocalizedLitElement extends LitElement {
     if (!LocalizedLitElement.__localizationCache) {
       LocalizedLitElement.__localizationCache = {};
     }
-    // Local contexts, shared only between instances of the same element
-    if (!this.constructor.prototype.__contexts) {
-      this.constructor.prototype.__contexts = {};
+    // Local bundles, shared only between instances of the same element
+    if (!this.constructor.prototype.__bundles) {
+      this.constructor.prototype.__bundles = {};
     }
   }
 
   /**
-   * Gets the context for the given locale.
-   * If the context for the locale does not exists, a new context
+   * Gets the bundle for the given locale.
+   * If the bundle for the locale does not exists, a new bundle
    * is created and associated with the locale.
    * If no locale is provided, the current locale will be used.
    * If no current locale is set, the global locale will be used.
    * If no locale is available at all, an error will be thrown.
-   * @param {string} [locale] The locale to get the context of
-   * @return {MessageContext} The context of the given locale
+   * @param {string} [locale] The locale to get the bundle of
+   * @return {FluentBundle} The bundle of the given locale
    */
-  getLocaleContext(locale) {
+  getLocaleBundle(locale) {
     const loc = locale || this.locale || this.globalLocale;
     if (!loc) {
       throw new Error('No locale provided');
     }
-    const contexts = this.constructor.prototype.__contexts;
-    if (!contexts[loc]) {
-      contexts[loc] = new MessageContext(loc);
+    const bundles = this.constructor.prototype.__bundles;
+    if (!bundles[loc]) {
+      bundles[loc] = new FluentBundle(loc);
     }
-    return contexts[loc];
+    return bundles[loc];
   }
 
   /**
-   * Adds the given fluent template resource to the given locale context
+   * Adds the given fluent template resource to the given locale bundle
    * @param {string} fluentTemplate The fluent template resource to add to the
-   *        locale context
+   *        locale bundle
    * @param {string} [locale] The locale to add the fluent template resource to
-   * @return {MessageContext} The locale context with the new fluent template
+   * @return {FluentBundle} The locale bundle with the new fluent template
    *         resource added
    */
   addResourceForLocale(fluentTemplate, locale) {
-    const ctx = this.getLocaleContext(locale);
-    ctx.addMessages(fluentTemplate);
-    return ctx;
+    const bundle = this.getLocaleBundle(locale);
+    bundle.addMessages(fluentTemplate);
+    return bundle;
   }
 
   /**
    * Loads the FTL resource at the given path for the given locale.
    * @param {String} path The path to fetch the FTL resource from
    * @param {String} [locale] The locale to associate the fetched resource with
-   * @return {Promise<MessageContext>} A promise that resolves to the
-   *         MessageContext with the fetched messages already added
+   * @return {Promise<FluentBundle>} A promise that resolves to the
+   *         FluentBundle with the fetched messages already added
    */
   loadResourceForLocale(path, locale) {
     const cache = LocalizedLitElement.__localizationCache;
@@ -100,7 +100,7 @@ export class LocalizedLitElement extends LitElement {
   }
 
   /**
-   * Localizes a string based on the current language context.
+   * Localizes a string based on the current language bundle.
    * @param {string} key The key to get the localization of.
    * @param {*} [params] The params to pass to the localization string.
    * @param {string} [locale] The locale of the message. Use this param
@@ -109,11 +109,11 @@ export class LocalizedLitElement extends LitElement {
    *         given key and with the given params (if it exists)
    */
   localize(key, params, locale) {
-    const ctx = this.getLocaleContext(locale);
-    const message = ctx.getMessage(key);
+    const bundle = this.getLocaleBundle(locale);
+    const message = bundle.getMessage(key);
     if (!message) {
       return;
     }
-    return ctx.format(message, params);
+    return bundle.format(message, params);
   }
 }
