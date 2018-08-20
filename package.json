@@ -10,12 +10,12 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@polymer/lit-element": "^0.5.1",
-    "fluent": "^0.6.4"
+    "@polymer/lit-element": "^0.5.2",
+    "fluent": "^0.8.0"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.3",
-    "eslint": "^4.19.1",
+    "babel-eslint": "^8.2.6",
+    "eslint": "^5.4.0",
     "eslint-config-google": "^0.9.1"
   }
 }
