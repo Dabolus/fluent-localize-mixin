@@ -24,6 +24,7 @@ export class LocalizedLitElement extends LitElement {
    */
   set globalLocale(locale) {
     LitElement.globalLocale = locale;
+    document.documentElement.lang = locale;
   }
 
   /**
