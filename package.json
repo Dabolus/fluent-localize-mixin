@@ -1,6 +1,6 @@
 {
   "name": "@dabolus/localized-lit-element",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A LitElement extension that provides easy l10n out of the box.",
   "main": "localized-lit-element.js",
   "author": {
