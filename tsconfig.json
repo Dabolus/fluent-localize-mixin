@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "strictNullChecks": false,
+    "esModuleInterop": true,
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "target": "es6",
+    "rootDir": "src",
+    "baseUrl": ".",
+    "outDir": ".",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "declaration": true,
+    "sourceMap": false
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

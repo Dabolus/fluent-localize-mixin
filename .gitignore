@@ -1,3 +1,5 @@
 .idea/
 node_modules/
 *.log
+localized-lit-element.js
+localized-lit-element.d.ts

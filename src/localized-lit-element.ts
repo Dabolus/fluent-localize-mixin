@@ -10,12 +10,16 @@ export { ftl } from 'fluent';
  * @extends LitElement
  */
 export class LocalizedLitElement extends LitElement {
+  private static __localizationCache: any;
+  private static globalLocale: string;
+  private locale: string;
+
   /**
    * Gets the global locale
    * @return {string} The current global locale
    */
   get globalLocale() {
-    return LitElement.globalLocale;
+    return LocalizedLitElement.globalLocale;
   }
 
   /**
@@ -23,7 +27,7 @@ export class LocalizedLitElement extends LitElement {
    * @param {string} locale The locale to set as global
    */
   set globalLocale(locale) {
-    LitElement.globalLocale = locale;
+    LocalizedLitElement.globalLocale = locale;
     document.documentElement.lang = locale;
   }
 
@@ -56,7 +60,7 @@ export class LocalizedLitElement extends LitElement {
    * @param {string} [locale] The locale to get the bundle of
    * @return {FluentBundle} The bundle of the given locale
    */
-  getLocaleBundle(locale) {
+  public getLocaleBundle(locale?: string): FluentBundle {
     const loc = locale || this.locale || this.globalLocale;
     if (!loc) {
       throw new Error('No locale provided');
@@ -76,7 +80,7 @@ export class LocalizedLitElement extends LitElement {
    * @return {FluentBundle} The locale bundle with the new fluent template
    *         resource added
    */
-  addResourceForLocale(fluentTemplate, locale) {
+  public addResourceForLocale(fluentTemplate: string, locale?: string): FluentBundle {
     const bundle = this.getLocaleBundle(locale);
     bundle.addMessages(fluentTemplate);
     return bundle;
@@ -84,19 +88,19 @@ export class LocalizedLitElement extends LitElement {
 
   /**
    * Loads the FTL resource at the given path for the given locale.
-   * @param {String} path The path to fetch the FTL resource from
-   * @param {String} [locale] The locale to associate the fetched resource with
+   * @param {string} path The path to fetch the FTL resource from
+   * @param {string} [locale] The locale to associate the fetched resource with
    * @return {Promise<FluentBundle>} A promise that resolves to the
    *         FluentBundle with the fetched messages already added
    */
-  loadResourceForLocale(path, locale) {
+  public loadResourceForLocale(path: string, locale?: string): Promise<FluentBundle> {
     const cache = LocalizedLitElement.__localizationCache;
     if (!cache[path]) {
       cache[path] = fetch(path)
         .then((res) => res.text())
         .then((localeFile) => ftl([localeFile]));
     }
-    return cache[path].then((fluentTemplate) =>
+    return cache[path].then((fluentTemplate: string) =>
       this.addResourceForLocale(fluentTemplate, locale));
   }
 
@@ -109,7 +113,7 @@ export class LocalizedLitElement extends LitElement {
    * @return {string | undefined} The localized string corresponding to the
    *         given key and with the given params (if it exists)
    */
-  localize(key, params, locale) {
+  public localize(key: string, params?: any, locale?: string) {
     const bundle = this.getLocaleBundle(locale);
     const message = bundle.getMessage(key);
     if (!message) {
