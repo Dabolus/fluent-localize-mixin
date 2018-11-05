@@ -1,8 +1,8 @@
 import { LitElement } from '@polymer/lit-element';
 import { FluentBundle, ftl } from 'fluent';
 
-export { html } from '@polymer/lit-element';
-export { ftl } from 'fluent';
+export * from '@polymer/lit-element';
+export * from 'fluent';
 
 /**
  * A LitElement extension that provides easy l10n out of the box.
