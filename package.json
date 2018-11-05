@@ -7,9 +7,9 @@
     "build": "tsc -p ."
   },
   "author": {
-    "name": "Giorgio Garasto (Dabolus)",
-    "email": "mail@dabolus.app",
-    "url": "https://dabolus.app"
+    "name": "Giorgio Garasto",
+    "email": "giorgio@garasto.it",
+    "url": "https://giorgio.garasto.it"
   },
   "license": "MIT",
   "dependencies": {
