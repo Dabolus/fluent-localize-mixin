@@ -10,7 +10,7 @@ export * from 'fluent';
  * @extends LitElement
  */
 export class LocalizedLitElement extends LitElement {
-  private static __localizationCache: any;
+  private static __localizationCache: { [key: string]: Promise<string> };
   private static globalLocale: string;
   private locale: string;
 
