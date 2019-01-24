@@ -175,18 +175,6 @@ js-yaml@^3.7.0:
     argparse "^1.0.7"
     esprima "^4.0.0"
 
-lit-element@^2.0.0-rc.3:
-  version "2.0.0-rc.3"
-  resolved "https://registry.yarnpkg.com/lit-element/-/lit-element-2.0.0-rc.3.tgz#03470c8f4f5616221c2a99378c8cfb0452b8d35f"
-  integrity sha512-A+lvXxq2xd4jkbbaNDkC4oXZXFHMSWhdAK2wrBTeMiTTcISEGm2F/zCcuxSYJEy2941fwWmEnPE9BPWqU/07Kg==
-  dependencies:
-    lit-html "^1.0.0-rc.2"
-
-lit-html@^1.0.0-rc.2:
-  version "1.0.0-rc.2"
-  resolved "https://registry.yarnpkg.com/lit-html/-/lit-html-1.0.0-rc.2.tgz#b9c904520fe005d349aa737a86d83645d97d5a89"
-  integrity sha512-4bq34lhVmwWly1zBXicOBJLOwaWfjOVbchEEmFnZLuztxjh5wRd2WqV0URX8Q47MQ7PaIjn/eXyTRKsYhSAeRw==
-
 minimatch@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
