@@ -4,7 +4,8 @@
   "description": "A LitElement extension that provides easy l10n out of the box.",
   "main": "localized-lit-element.js",
   "scripts": {
-    "build": "tsc -p ."
+    "build": "tsc -p .",
+    "prepublishOnly": "yarn build"
   },
   "author": {
     "name": "Giorgio Garasto",
