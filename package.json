@@ -1,7 +1,7 @@
 {
-  "name": "@dabolus/localized-lit-element",
+  "name": "fluent-localize-mixin",
   "version": "0.4.2",
-  "description": "A LitElement extension that provides easy l10n out of the box.",
+  "description": "A mixin for custom elements that provides easy l10n out of the box.",
   "main": "localized-lit-element.js",
   "scripts": {
     "build": "tsc -p .",
@@ -15,12 +15,10 @@
   "license": "MIT",
   "devDependencies": {
     "fluent": "^0.10.0",
-    "lit-element": "^2.0.0",
     "tslint": "^5.12.1",
     "typescript": "^3.2.4"
   },
   "peerDependencies": {
-    "fluent": "^0.10.0",
-    "lit-element": "^2.0.0"
+    "fluent": "^0.10.0"
   }
 }

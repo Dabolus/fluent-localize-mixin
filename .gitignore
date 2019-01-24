@@ -1,5 +1,5 @@
 .idea/
 node_modules/
 *.log
-localized-lit-element.js
-localized-lit-element.d.ts
+fluent-localize-mixin.js
+fluent-localize-mixin.d.ts
