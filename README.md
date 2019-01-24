@@ -2,6 +2,8 @@
 
 ## A mixin for custom elements that provides easy l10n out of the box.
 
+> _Note: this package was previously known as `localized-lit-element`_
+
 Fluent Localize Mixin is a simple mixin that allows to easily localize your 
 custom elements using
 [Mozilla's Project Fluent syntax](https://projectfluent.org/). It allows you to 
