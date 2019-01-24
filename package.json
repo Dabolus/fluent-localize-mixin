@@ -1,6 +1,6 @@
 {
   "name": "fluent-localize-mixin",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "description": "A mixin for custom elements that provides easy l10n out of the box.",
   "main": "fluent-localize-mixin.js",
   "scripts": {
