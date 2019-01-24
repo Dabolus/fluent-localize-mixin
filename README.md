@@ -1,10 +1,10 @@
-# LocalizedLitElement
+# Fluent Localize Mixin
 
-## A LitElement extension that provides easy l10n out of the box
+## A mixin for custom elements that provides easy l10n out of the box.
 
-LocalizedLitElement is a simple wrapper around LitElement that allows to easily
-localize your elements using
-[Mozilla's Project Fluent syntax](https://projectfluent.org/). It allows you to
+Fluent Localize Mixin is a simple mixin that allows to easily localize your 
+custom elements using
+[Mozilla's Project Fluent syntax](https://projectfluent.org/). It allows you to 
 load `.ftl` files and pass Fluent strings directly to your element.
 The translations can then be used by calling the provided method `localize`.
 
@@ -16,13 +16,13 @@ incredibly simple. For example, given this LitElement:
 ```html
 <script src="node_modules/@webcomponents/webcomponents-bundle.js"></script>
 <script type="module">
-  import {LitElement, html} from '@polymer/lit-element';
+  import {LitElement, html} from 'lit-element';
 
   class MyElement extends LitElement {
 
-    static get properties() { return { mood: String }}
+    static get properties() { return { mood: { type: String }; }
 
-    _render({mood}) {
+    render({mood}) {
       return html`<h1>Web Components are ${mood}!</h1>`;
     }
 
@@ -39,13 +39,14 @@ The same element with l10n added would look like this:
 ```html
 <script src="node_modules/@webcomponents/webcomponents-bundle.js"></script>
 <script type="module">
-  import {LocalizedLitElement, html, ftl} from '@dabolus/localized-lit-element';
+  import {LitElement, html} from 'lit-element';
+  import {localize} from 'fluent-localize-mixin';
 
-  class MyElement extends LocalizedLitElement {
+  class MyElement extends localize(LitElement) {
 
-    static get properties() { return { mood: String }}
+    static get properties() { return { mood: { type: String }; }
 
-    _render({mood}) {
+    render({mood}) {
       return html`<h1>${this.localize('my-phrase', {mood})}</h1>`;
     }
   
